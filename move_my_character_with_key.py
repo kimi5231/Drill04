@@ -1,6 +1,6 @@
 from pico2d import*
 
-WIDTH, HEIGHT = 1280, 1024
+WIDTH, HEIGHT = 1100, 600
 open_canvas(WIDTH, HEIGHT)
 background = load_image('TUK_GROUND.png')
 character = load_image('sprite_sheet.png')
@@ -38,6 +38,17 @@ def handle_events():
             elif event.key == SDLK_DOWN:
                 dirY += 1
 
+def check_point():
+    global x, y
+    if x < 50:
+        x = 50
+    elif x > WIDTH - 50:
+        x = WIDTH - 50
+    if y < 50:
+        y = 50
+    elif y > HEIGHT - 50:
+        y = HEIGHT - 50
+
 running = True
 frameX, frameY = 0, 3
 x, y = WIDTH//2, HEIGHT//2
@@ -52,6 +63,7 @@ while(running):
     frameX = (frameX + 1) % 10
     x += dirX * 10
     y += dirY * 10
+    check_point()
     delay(0.05)
 
 close_canvas()

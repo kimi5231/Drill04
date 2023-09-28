@@ -11,7 +11,7 @@ x, y = WIDTH//2, HEIGHT//2
 
 while(running):
     clear_canvas()
-    background.draw(x, y)
+    background.draw(WIDTH, HEIGHT)
     character.clip_draw(frameX * 64, frameY * 64, 64, 64, x, y)
     update_canvas()
     frameX = (frameX + 1) % 9

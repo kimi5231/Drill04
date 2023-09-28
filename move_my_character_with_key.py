@@ -8,7 +8,8 @@ character = load_image('sprite_sheet.png')
 def handle_events():
     global running
     global dirX, dirY
-    global frameY
+    global frameY, frameLen
+    global sec
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -18,24 +19,44 @@ def handle_events():
                 running = False
             elif event.key == SDLK_LEFT:
                 frameY = 2
+                frameLen = 10
                 dirX -= 1
+                sec = 0.05
             elif event.key == SDLK_RIGHT:
                 frameY = 0
+                frameLen = 10
                 dirX += 1
+                sec = 0.05
             elif event.key == SDLK_UP:
                 frameY = 1
+                frameLen = 10
                 dirY += 1
+                sec = 0.05
             elif event.key == SDLK_DOWN:
                 frameY = 3
+                frameLen = 10
                 dirY -= 1
+                sec = 0.05
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_LEFT:
+                frameY = 6
+                frameLen = 3
+                sec = 0.1
                 dirX += 1
             elif event.key == SDLK_RIGHT:
+                frameY = 4
+                frameLen = 3
+                sec = 0.1
                 dirX -= 1
             elif event.key == SDLK_UP:
+                frameY = 5
+                frameLen = 1
+                sec = 0.1
                 dirY -= 1
             elif event.key == SDLK_DOWN:
+                frameY = 7
+                frameLen = 3
+                sec = 0.1
                 dirY += 1
 
 def check_point():

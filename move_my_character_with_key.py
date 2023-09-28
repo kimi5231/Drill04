@@ -5,6 +5,12 @@ open_canvas(WIDTH, HEIGHT)
 background = load_image('TUK_GROUND.png')
 character = load_image('sprite_sheet.png')
 
+def handle_events():
+    global running
+    global x, y
+    global frameY
+    events = get_events()
+
 running = True
 frameX, frameY = 0, 1
 x, y = WIDTH//2, HEIGHT//2

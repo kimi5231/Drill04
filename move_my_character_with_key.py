@@ -14,5 +14,7 @@ while(running):
     background.draw(x, y)
     character.clip_draw(frameX * 64, frameY * 64, 64, 64, x, y)
     update_canvas()
+    frameX = (frameX + 1) % 9
+    delay(0.05)
 
 close_canvas()

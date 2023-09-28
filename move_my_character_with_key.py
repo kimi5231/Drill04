@@ -50,7 +50,8 @@ def check_point():
         y = HEIGHT - 50
 
 running = True
-frameX, frameY = 0, 3
+frameX, frameY, frameLen = 0, 7, 3
+sec = 0.1
 x, y = WIDTH//2, HEIGHT//2
 dirX, dirY = 0, 0
 
@@ -60,10 +61,10 @@ while(running):
     character.clip_draw(frameX * 96, frameY * 104, 96, 104, x, y)
     update_canvas()
     handle_events()
-    frameX = (frameX + 1) % 10
+    frameX = (frameX + 1) % frameLen
     x += dirX * 10
     y += dirY * 10
     check_point()
-    delay(0.05)
+    delay(sec)
 
 close_canvas()
